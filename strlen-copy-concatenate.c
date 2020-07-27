@@ -43,7 +43,7 @@ int main(void) {
        restrict 是 C99 制定，只能用於修飾指標的關鍵字，之後會談到，就這邊來說，表示你
        得保證 dest 與 src 是不同來源的引數。
        */
-    char buf[LEN] = {'\0'};
+    char buf[LEN] = {'\0'}; // 處理字串時，還是要將元素初始為'\0'，以免在存取時超出範圍（printf)
 
     puts("Please input a name:");
     fgets(buf, sizeof(buf), stdin);
