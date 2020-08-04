@@ -5,7 +5,16 @@
    體，例如，在 math.c 中撰寫：
    */
 
-int power2(int num) {
+/* 在呼叫函式時會有額外的資源負擔，一些小函式，可以「建議」編譯器設為 inline 行內，若建議
+   被採納，該函式會自動在呼叫點展現為程式碼
+
+   inline 函式只能建議編譯器，建議不一定被採納，例如遞迴函式無法在呼叫點展開，數千行的函式
+   也不適合在呼叫點展開，如果編譯器拒絕將函式展開，會視為一般函式進行編譯，inline 的建議會
+   被忽略。
+
+   C99 的 inline 規則，與 GNU 的 inline 規則有所不同，詳情可參考〈Inline Functions In C〉。
+   */
+inline int power2(int num) {
     return power(num, 2);
 }
 
